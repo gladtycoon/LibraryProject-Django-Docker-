@@ -1,0 +1,8 @@
+<header>
+    <h1>Библиотека</h1>
+    {% if user.is_authenticated %}
+        <p>Добро пожаловать в библиотеку, {{ user.username }}!</p>
+    {% else %}
+        <p>Войдите или зарегистрируйтесь</p>
+    {% endif %}
+</header>
