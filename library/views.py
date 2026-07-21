@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect
 from .forms import BookForm, AuthorForm
 from .models import Book, Author
 from library.services import BookService
@@ -11,7 +11,6 @@ from django.http import HttpResponseForbidden
 from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
 from django.core.cache import cache
-
 
 
 class ReviewBookView(LoginRequiredMixin, View):
@@ -29,7 +28,7 @@ class ReviewBookView(LoginRequiredMixin, View):
 
 class RecommendBookView(LoginRequiredMixin, View):
     def post(self, request, pk):
-        book = get_object_or_404(Book,  pk=pk)
+        book = get_object_or_404(Book, pk=pk)
 
         if not request.user.has_perm('library.can_recommend_book'):
             return HttpResponseForbidden('У вас нет права для рекомендации книги')

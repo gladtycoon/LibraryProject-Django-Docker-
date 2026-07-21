@@ -1,5 +1,6 @@
 from django.test import TestCase
-from .models import Author, Book, Review
+from .models import Author, Book
+
 
 class ModelTests(TestCase):
     """Тесты для моделей приложения."""

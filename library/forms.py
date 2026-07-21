@@ -1,6 +1,5 @@
 from django import forms
 from .models import Author, Book
-from django.core.exceptions import ValidationError
 
 
 class AuthorForm(forms.ModelForm):
@@ -13,7 +12,6 @@ class AuthorForm(forms.ModelForm):
         self.fields['first_name'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Введите имя'})
         self.fields['last_name'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Введите фамилию'})
         self.fields['birth_date'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Введите дату рождения'})
-
 
     def clean(self):
         cleaned_data = super().clean()
@@ -34,5 +32,5 @@ class BookForm(forms.ModelForm):
         super(BookForm, self).__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Введите название'})
         self.fields['author'].widget.attrs.update({'class': 'form-control'})
-        self.fields['publication_date'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Введите дату публикации'})
-
+        self.fields['publication_date'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': 'Введите дату публикации'})

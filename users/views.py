@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm
 from django.core.mail import send_mail
 
+
 class RegisterView(CreateView):
     template_name = 'users/register.html'
     form_class = CustomUserCreationForm
@@ -19,6 +20,3 @@ class RegisterView(CreateView):
         from_email = 'someclient@yandex.ru'
         recipient_list = [user_email,]
         send_mail(subject, message, from_email, recipient_list)
-
-
-    

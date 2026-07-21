@@ -1,4 +1,5 @@
-from .models import Book, Review
+from .models import Review
+
 
 class BookService:
 
@@ -13,7 +14,6 @@ class BookService:
         average_rating = total_rating / reviews.count()
 
         return average_rating
-
 
     @staticmethod
     def is_popular(book_id, threshold=7):
